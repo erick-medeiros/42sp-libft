@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 00:05:35 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 00:15:41 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,12 @@ int	main(void)
 	list[2] = FUNC_TEST(ft_isascii(127) != 0 && isascii(127) != 0);
 	list[3] = FUNC_TEST(ft_isascii(178) == 0 && isascii(178) == 0);
 	ft_test(name, list, 4);
+	name = "ft_isprint";
+	list[0] = FUNC_TEST(ft_isprint('\n') == 0 && isprint('\n') == 0);
+	list[1] = FUNC_TEST(ft_isprint(0) == 0 && isprint(1) == 0);
+	list[2] = FUNC_TEST(ft_isprint(127) == 0 && isprint(127) == 0);
+	list[3] = FUNC_TEST(ft_isprint(' ') != 0 && isprint(' ') != 0);
+	list[4] = FUNC_TEST(ft_isprint('~') != 0 && isprint('~') != 0);
+	ft_test(name, list, 5);
 	return (0);
 }
