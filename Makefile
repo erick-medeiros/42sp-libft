@@ -13,4 +13,7 @@ fclean:
 
 re:
 
-.PHONY: all clean fclean re
+test:
+	clear && gcc libft.h ft_*.c tests.c && ./a.out
+
+.PHONY: all clean fclean re test
