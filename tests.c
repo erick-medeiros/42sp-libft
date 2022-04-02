@@ -6,13 +6,14 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 00:15:41 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 00:23:43 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 #define STATUS_SUCESS 0
 #define STATUS_ERROR 1
@@ -79,5 +80,9 @@ int	main(void)
 	list[3] = FUNC_TEST(ft_isprint(' ') != 0 && isprint(' ') != 0);
 	list[4] = FUNC_TEST(ft_isprint('~') != 0 && isprint('~') != 0);
 	ft_test(name, list, 5);
+	name = "ft_strlen";
+	list[0] = FUNC_TEST(ft_strlen("123") == strlen("123"));
+	list[1] = FUNC_TEST(ft_strlen("") == strlen(""));
+	ft_test(name, list, 2);
 	return (0);
 }
