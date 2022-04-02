@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 00:01:28 by eandre-f         ###   ########.fr       */
+/*   Created: 2022/04/02 23:58:45 by eandre-f          #+#    #+#             */
+/*   Updated: 2022/04/03 00:01:06 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-// Part 1
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-
-#endif
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 177)
+		return (1);
+	return (0);
+}

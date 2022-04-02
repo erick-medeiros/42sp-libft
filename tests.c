@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/02 23:56:29 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 00:05:35 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int	main(void)
 	list[1] = FUNC_TEST(ft_isalnum(1) == isalnum(1));
 	list[2] = FUNC_TEST(ft_isalnum('a') != 0 && isalnum('a') != 0);
 	list[3] = FUNC_TEST(ft_isalnum('1') != 0 && isalnum('1') != 0);
+	ft_test(name, list, 4);
+	name = "ft_isascii";
+	list[0] = FUNC_TEST(ft_isascii('\n') != 0 && isascii('\n') != 0);
+	list[1] = FUNC_TEST(ft_isascii(0) != 0 && isascii(1) != 0);
+	list[2] = FUNC_TEST(ft_isascii(127) != 0 && isascii(127) != 0);
+	list[3] = FUNC_TEST(ft_isascii(178) == 0 && isascii(178) == 0);
 	ft_test(name, list, 4);
 	return (0);
 }
