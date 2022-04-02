@@ -14,6 +14,7 @@ fclean:
 re:
 
 test:
-	clear && gcc libft.h ft_*.c tests.c && ./a.out
+	clear && echo "norminette" && norminette -R CheckForbiddenSourceHeader ft_*
+	clear && echo "tests" && gcc libft.h ft_*.c tests.c && ./a.out
 
 .PHONY: all clean fclean re test

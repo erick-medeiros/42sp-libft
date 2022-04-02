@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/02 23:03:45 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/02 23:35:31 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct t_test {
 	int	status;
 } t_test;
 
-void	ft_test(t_test test_func)
+void	ft_test(t_test test_func, int ntests)
 {
 	int	i;
 	int status;
@@ -34,10 +34,13 @@ void	ft_test(t_test test_func)
 
 	status = STATUS_SUCESS;
 	i = 0;
-	while (i < MAX_TESTS && list_test[i] && status == STATUS_SUCESS)
+	while (i < ntests && status == STATUS_SUCESS)
 	{
 		if (list_test[i] == STATUS_ERROR)
+		{
 			status = STATUS_ERROR;
+			break;
+		}
 		i++;
 	}
 	if (status == STATUS_ERROR) {
@@ -53,14 +56,20 @@ int	main(void)
 	// ft_isalpha
 	t_test test_isalpha;
 	test_isalpha.name = "ft_isalpha";
-	test_isalpha.list[0] = FUNC_TEST(ft_isalpha('a') != 0) && (isalpha('a') != 0);
-	test_isalpha.list[1] = FUNC_TEST(ft_isalpha('A') != 0) && (isalpha('A') != 0);
-	test_isalpha.list[2] = FUNC_TEST(ft_isalpha('z') != 0) && (isalpha('z') != 0);
-	test_isalpha.list[3] = FUNC_TEST(ft_isalpha('Z') != 0) && (isalpha('Z') != 0);
+	test_isalpha.list[0] = FUNC_TEST(ft_isalpha('a') != 0 && isalpha('a') != 0);
+	test_isalpha.list[1] = FUNC_TEST(ft_isalpha('A') != 0 && isalpha('A') != 0);
+	test_isalpha.list[2] = FUNC_TEST(ft_isalpha('z') != 0 && isalpha('z') != 0);
+	test_isalpha.list[3] = FUNC_TEST(ft_isalpha('Z') != 0 && isalpha('Z') != 0);
 	test_isalpha.list[4] = FUNC_TEST(ft_isalpha(1) == isalpha(1));
 	test_isalpha.list[5] = FUNC_TEST(ft_isalpha('\n') == isalpha('\n'));
-	ft_test(test_isalpha);
-	//
-	
+	ft_test(test_isalpha, 6);
+	// ft_isdigit
+	t_test test_isdigit;
+	test_isdigit.name = "ft_isdigit";
+	test_isdigit.list[0] = FUNC_TEST(ft_isdigit('\n') == isdigit('\n'));
+	test_isdigit.list[1] = FUNC_TEST(ft_isdigit(1) == isdigit(1));
+	test_isdigit.list[2] = FUNC_TEST(ft_isdigit('a') == isdigit('a'));
+	test_isdigit.list[3] = FUNC_TEST(ft_isdigit('1') != 0 && isdigit('1') != 0);
+	ft_test(test_isdigit, 4);
 	return (0);
 }
