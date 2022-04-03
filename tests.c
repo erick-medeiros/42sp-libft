@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 00:23:43 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 02:29:29 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,13 @@ int	main(void)
 	list[0] = FUNC_TEST(ft_strlen("123") == strlen("123"));
 	list[1] = FUNC_TEST(ft_strlen("") == strlen(""));
 	ft_test(name, list, 2);
+
+	
+	//printf("%s\n", (char *)memset(teste, 'f', 2));
+	name = "ft_memset";
+	char memset_s1[10];
+	char memset_s2[10];
+	list[0] = FUNC_TEST(strcmp(ft_memset(memset_s1, 'f', 4), memset(memset_s2, 'f', 4)) == 0);
+	ft_test(name, list, 1);
 	return (0);
 }
