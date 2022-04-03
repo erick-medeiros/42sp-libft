@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 20:40:59 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 00:12:32 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 03:06:27 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	int	is;
-
-	is = 0;
-	if (c >= 'a' && c <= 'z')
-		is = 1;
-	if (c >= 'A' && c <= 'Z')
-		is = 1;
-	return (is);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
