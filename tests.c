@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 02:32:22 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/03 03:02:01 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <strings.h>
 
 #define STATUS_SUCESS 0
 #define STATUS_ERROR 1
@@ -86,12 +87,22 @@ int	main(void)
 	list[1] = FUNC_TEST(ft_strlen("") == strlen(""));
 	ft_test(name, list, 2);
 
-	
-	//printf("%s\n", (char *)memset(teste, 'f', 2));
 	name = "ft_memset";
 	char memset_s1[10];
 	char memset_s2[10];
 	list[0] = FUNC_TEST(strcmp(ft_memset(memset_s1, 'f', 4), memset(memset_s2, 'f', 4)) == 0);
 	ft_test(name, list, 1);
+
+	name = "ft_bzero";
+	char bzero_buffer1[10];
+	char bzero_buffer2[10];
+	memset(bzero_buffer1, 'a', 10);
+	memset(bzero_buffer2, 'a', 10);
+	ft_bzero(bzero_buffer1, 4);
+	bzero(bzero_buffer2, 4);
+	list[0] = FUNC_TEST(strncmp(bzero_buffer1, bzero_buffer1, 10)  == 0);
+	list[1] = FUNC_TEST(bzero_buffer1[1] == '\0' && bzero_buffer2[1] == '\0');
+	list[2] = FUNC_TEST(bzero_buffer1[5] == 'a' && bzero_buffer2[5] == 'a');
+	ft_test(name, list, 3);
 	return (0);
 }
