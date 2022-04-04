@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/04 16:49:01 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:58:08 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <strings.h>
+#include <bsd/string.h>
 
 #define STATUS_SUCESS 0
 #define STATUS_ERROR 1
@@ -141,6 +142,16 @@ void	test_ft_memmove(char *list)
 	ft_test("ft_memmove", list);
 }
 
+void	test_ft_strlcpy(char *list)
+{
+	char	s1[10];
+	char	s2[10];
+	ft_strlcpy(s1, "1234567890", 5);
+	strlcpy(s2, "1234567890", 5);
+	list[0] = FUNC_TEST(strncmp(s1, s2, 5)  == 0);
+	ft_test("ft_strlcpy", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -169,5 +180,6 @@ int	main(void)
 	test_ft_bzero(list);
 	test_ft_memcpy(list);
 	test_ft_memmove(list);
+	test_ft_strlcpy(list);
 	return (0);
 }

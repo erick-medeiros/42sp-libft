@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/04 16:18:27 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:20:02 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 // #include <strings.h>
 // Part 1
 void	ft_bzero(void *s, size_t n);
+
+// #include <bsd/string.h>
+// Part 1
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif
