@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/04 15:32:54 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/04 15:51:34 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	main(void)
 	name = "ft_memset";
 	char memset_s1[10];
 	char memset_s2[10];
-	list[0] = FUNC_TEST(strcmp(ft_memset(memset_s1, 'f', 4), memset(memset_s2, 'f', 4)) == 0);
+	list[0] = FUNC_TEST(strncmp(ft_memset(memset_s1, 'f', 4), memset(memset_s2, 'f', 4), 4) == 0);
 	ft_test(name, list, 1);
 	//////////
 	name = "ft_bzero";
