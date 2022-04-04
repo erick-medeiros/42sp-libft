@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/03 03:02:01 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/04 15:17:55 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,13 @@ int	main(void)
 	list[1] = FUNC_TEST(bzero_buffer1[1] == '\0' && bzero_buffer2[1] == '\0');
 	list[2] = FUNC_TEST(bzero_buffer1[5] == 'a' && bzero_buffer2[5] == 'a');
 	ft_test(name, list, 3);
+
+	name = "ft_memcpy";
+	char	memcpy_s1[10];
+	char	memcpy_s2[10];
+	ft_memcpy(memcpy_s1, "1234567890", 5);
+	memcpy(memcpy_s2, "1234567890", 5);
+	list[0] = FUNC_TEST(strncmp(memcpy_s1, memcpy_s2, 5)  == 0);
+	ft_test(name, list, 1);
 	return (0);
 }
