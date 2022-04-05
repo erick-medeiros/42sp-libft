@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:55:07 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 21:58:21 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/06 01:21:56 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strdup(const char *s)
 	int		size;
 
 	size = ft_strlen(s);
-	dup = (char *) malloc(sizeof(char) * size);
+	dup = (char *) malloc(sizeof(char) * (size + 1));
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		dup[i] = s[i];
 		i++;

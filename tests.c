@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 23:46:42 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/06 01:21:34 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,6 +272,13 @@ void	test_ft_strdup(char *list)
 	s2 = ft_strdup(s1);
 	s3 = strdup(s1);
 	list[0] = FUNC_TEST(strncmp(s2, s3, strlen(s1)) == 0);
+
+	char * s = ft_strdup((char*)"coucou");
+	list[1] = FUNC_TEST(strcmp(s, "coucou") == 0);
+
+	s = ft_strdup((char*)"");
+	list[2] = FUNC_TEST(strcmp(s, "") == 0);
+
 	ft_test("ft_strdup", list);
 }
 
