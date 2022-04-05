@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:20:58 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 19:11:25 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:23:34 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	char	*s1uc;
-	char	*s2uc;
+	size_t			i;
+	unsigned char	*s1uc;
+	unsigned char	*s2uc;
 
 	s1uc = (unsigned char *)s1;
 	s2uc = (unsigned char *)s2;
