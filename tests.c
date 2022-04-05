@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 22:02:47 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 23:46:42 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,11 @@ void	test_ft_atoi(char *list)
 
 void	test_ft_calloc(char *list)
 {
-	//list[0] = FUNC_TEST();
+	char *p;
+	char c[5] = { '\0', '\0', '\0', '\0', '\0' };
+
+	p = (char *) ft_calloc(5, sizeof(char));
+	list[0] = FUNC_TEST(strncmp(p, c, 5) == 0);
 	ft_test("ft_calloc", list);
 }
 
