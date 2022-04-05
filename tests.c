@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 16:18:37 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:11:42 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,21 @@ void	test_ft_memchr(char *list)
 	ft_test("ft_memchr", list);
 }
 
+void	test_ft_memcmp(char *list)
+{
+	char s1[] = { 't', 'e', 's', 't', '\0', 'a' };
+	char s2[] = { 't', 'e', 's', 't', '\0', 'e' };
+	int r1 = ft_memcmp(s1, s2, 6);
+	// not working | output = (-1, 0, 1)
+	//int r2 = memcmp(s1, s2, 6);
+	//printf("%d %d \n", r1, r2);
+	list[0] = FUNC_TEST(r1 == -4);
+	list[1] = FUNC_TEST(ft_memcmp(s1, s2, 5) == 0);
+	list[2] = FUNC_TEST(ft_memcmp(s1, s2, 7) == -4);
+	list[3] = FUNC_TEST(ft_memcmp(s1, s2, 0) == 0);
+	ft_test("ft_memcmp", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -252,5 +267,6 @@ int	main(void)
 	test_ft_strrchr(list);
 	test_ft_strncmp(list);
 	test_ft_memchr(list);
+	test_ft_memcmp(list);
 	return (0);
 }
