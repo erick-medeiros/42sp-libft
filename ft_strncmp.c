@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:59:59 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 05:11:36 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 20:01:26 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	while (i < n)
+	{
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
+			return (s1[i] - s2[i]);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }
