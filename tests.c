@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 05:36:40 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:18:37 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #define STATUS_SUCESS 0
 #define STATUS_ERROR 1
-#define MAX_TESTS 100
+#define MAX_TESTS 20
 #define FUNC_TEST(condition) (condition ? STATUS_SUCESS : STATUS_ERROR)
 
 void	ft_test(char *name_test, char *list_test)
@@ -209,6 +209,13 @@ void	test_ft_strncmp(char *list)
 	ft_test("ft_strncmp", list);
 }
 
+void	test_ft_memchr(char *list)
+{
+	char s1[] = { 't', 'e', 's', 't', '\0', 'a' };
+	list[0] = FUNC_TEST(strncmp(ft_memchr(s1, 'a', 6), memchr(s1, 'a', 6), 6) == 0);
+	ft_test("ft_memchr", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -244,5 +251,6 @@ int	main(void)
 	test_ft_strchr(list);
 	test_ft_strrchr(list);
 	test_ft_strncmp(list);
+	test_ft_memchr(list);
 	return (0);
 }
