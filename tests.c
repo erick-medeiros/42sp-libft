@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 20:02:05 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 20:51:49 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string.h>
 #include <strings.h>
 #include <bsd/string.h>
+#include <stdlib.h>
 
 #define STATUS_SUCESS 0
 #define STATUS_ERROR 1
@@ -39,7 +40,7 @@ void	ft_test(char *name_test, char *list_test)
 		i++;
 	}
 	if (status == STATUS_ERROR)
-		printf("%s --- KO\nError Test %d\n", name_test, i);
+		printf("%s --------- KO\nError Test %d\n", name_test, i);
 	else
 		printf("%s OK\n", name_test);
 }
@@ -241,6 +242,17 @@ void	test_ft_strnstr(char *list)
 	ft_test("ft_strnstr", list);
 }
 
+void	test_ft_atoi(char *list)
+{
+	char *s1 = " 	123";
+	char *s2 = " 	-123";
+	char *s3 = " 	--123";
+	list[0] = FUNC_TEST(ft_atoi(s1) == atoi(s1));
+	list[1] = FUNC_TEST(ft_atoi(s2) == atoi(s2));
+	list[2] = FUNC_TEST(ft_atoi(s3) == atoi(s3));
+	ft_test("ft_atoi", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -279,5 +291,6 @@ int	main(void)
 	test_ft_memchr(list);
 	test_ft_memcmp(list);
 	test_ft_strnstr(list);
+	test_ft_atoi(list);
 	return (0);
 }
