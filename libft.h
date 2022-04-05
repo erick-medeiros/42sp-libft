@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 20:11:58 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:50:45 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 #include <stddef.h>
+#include <stdlib.h>
 
 // #include <ctype.h>
 // Part 1
@@ -50,5 +51,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 // #include <stdlib.h>
 // Part 1
 int		ft_atoi(const char *nptr);
+void	*ft_calloc(size_t nelem, size_t elsize);
 
 #endif
