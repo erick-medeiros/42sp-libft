@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 04:55:07 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 05:36:40 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,14 @@ void	test_ft_strrchr(char *list)
 	ft_test("ft_strrchr", list);
 }
 
+void	test_ft_strncmp(char *list)
+{
+	char *s1 = "testi";
+	char *s2 = "teste";
+	list[0] = FUNC_TEST(ft_strncmp(s1, s2, 5) == strncmp(s1, s2, 5));
+	ft_test("ft_strncmp", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -235,5 +243,6 @@ int	main(void)
 	test_ft_tolower(list);
 	test_ft_strchr(list);
 	test_ft_strrchr(list);
+	test_ft_strncmp(list);
 	return (0);
 }
