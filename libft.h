@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/04 17:00:23 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 04:11:54 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_toupper(int c);
 
 // #include <string.h>
 // Part 1
