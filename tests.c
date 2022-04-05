@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 20:51:49 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 22:02:47 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,24 @@ void	test_ft_atoi(char *list)
 	ft_test("ft_atoi", list);
 }
 
+void	test_ft_calloc(char *list)
+{
+	//list[0] = FUNC_TEST();
+	ft_test("ft_calloc", list);
+}
+
+void	test_ft_strdup(char *list)
+{
+	char *s1 = "testando";
+	char *s2;
+	char *s3;
+
+	s2 = ft_strdup(s1);
+	s3 = strdup(s1);
+	list[0] = FUNC_TEST(strncmp(s2, s3, strlen(s1)) == 0);
+	ft_test("ft_strdup", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -270,7 +288,6 @@ int	main(void)
 		list[i] = STATUS_SUCESS;
 		i++;
 	}
-
 	test_ft_isalpha(list);
 	test_ft_isdigit(list);
 	test_ft_isalnum(list);
@@ -292,5 +309,7 @@ int	main(void)
 	test_ft_memcmp(list);
 	test_ft_strnstr(list);
 	test_ft_atoi(list);
+	test_ft_calloc(list);
+	test_ft_strdup(list);
 	return (0);
 }
