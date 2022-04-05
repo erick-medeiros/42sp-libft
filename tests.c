@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/04 16:58:08 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/05 03:48:00 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,22 @@ void	test_ft_strlcpy(char *list)
 	ft_test("ft_strlcpy", list);
 }
 
+void	test_ft_strlcat(char *list)
+{
+	char	dst1[10] = { 'a', 'b', 'c', 'd', 'e', 'f', '\0', '\0', '\0', '\0' };
+	char	src1[5] = { '1', '2', '3', '4', '\0' };
+	char	dst2[10] = { 'a', 'b', 'c', 'd', 'e', 'f', '\0', '\0', '\0', '\0' };
+	char	src2[5] = { '1', '2', '3', '4', '\0' };
+	size_t	t1;
+	size_t	t2;
+
+	t1 = ft_strlcat(dst1, src1, 10);
+	t2 = strlcat(dst2, src2, 10);
+	list[0] = FUNC_TEST(strncmp(dst1, dst2, 10) == 0);
+	list[1] = FUNC_TEST(t1 == t2);
+	ft_test("ft_strlcat", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
@@ -181,5 +197,6 @@ int	main(void)
 	test_ft_memcpy(list);
 	test_ft_memmove(list);
 	test_ft_strlcpy(list);
+	test_ft_strlcat(list);
 	return (0);
 }
