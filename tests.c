@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/06 01:21:34 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/06 01:27:03 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,9 +236,11 @@ void	test_ft_strnstr(char *list)
 {
 	char s[] = { 't', 'e', 's', 't', 'e', ' ', 'a', 'q', 'u', 'i', ' ', '1', '2', '3', '\0' };
 	char c[] = {'a', 'q', 'u', 'i', ' ', '1', '2', '3', '\0'};
+	char haystack[30] = "aaabcabcd";
 	char *r;
 	r = ft_strnstr(s, "aqui", 11);
 	list[0] = FUNC_TEST(strncmp(r, c, strlen(c)) == 0);
+	list[1] = FUNC_TEST(ft_strnstr(haystack, "cd", 8) == NULL);
 	ft_test("ft_strnstr", list);
 }
 

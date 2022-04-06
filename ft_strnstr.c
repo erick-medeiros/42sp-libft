@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 19:16:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 19:55:21 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/06 02:17:41 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,25 @@
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	len_little;
+	size_t	o;
+	size_t	len_l;
 	char	*bigc;
 
 	bigc = (char *)big;
-	len_little = ft_strlen(little);
-	if (len_little == 0)
+	len_l = ft_strlen(little);
+	if (len_l == 0)
 		return (bigc);
 	i = 0;
 	while (i < len && bigc[i] != '\0')
 	{
-		if (ft_strncmp(&bigc[i], little, len_little) == 0)
-			return (&bigc[i]);
+		o = 0;
+		while (bigc[i + o] == little[o] && (i + o) < len)
+		{
+			if (little[o + 1] == '\0')
+				return (&bigc[i]);
+			o++;
+		}
 		i++;
 	}
-	printf("oiaaaaa %ld\n", i);
 	return (NULL);
 }
