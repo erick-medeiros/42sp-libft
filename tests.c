@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/06 01:27:03 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/07 03:59:11 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,9 @@ void	test_ft_strchr(char *list)
 {
 	char *s = "test um novo testo";
 	char *s2 = "1";
+	char s3[] = "tripouille";
 	list[0] = FUNC_TEST(strncmp(ft_strchr(s, ' '), strchr(s, ' '), strlen(s)) == 0);
+	list[1] = FUNC_TEST(ft_strrchr(s3, 't' + 256) == s3); // working (convert int to unsigned int)?
 	//list[1] = FUNC_TEST((&ft_strchr(s, '\0')) == (&strchr(s, '\0')));
 	ft_test("ft_strchr", list);
 }
@@ -198,7 +200,9 @@ void	test_ft_strrchr(char *list)
 {
 	char *s = "test um novo testo";
 	char *s2 = "1";
+	char s3[] = "tripouille";
 	list[0] = FUNC_TEST(strncmp(ft_strrchr(s, ' '), strrchr(s, ' '), strlen(s)) == 0);
+	list[1] = FUNC_TEST(ft_strrchr(s3, 't' + 256) == s3); // working (convert int to unsigned int)?
 	ft_test("ft_strrchr", list);
 }
 
