@@ -24,8 +24,8 @@ SRC = ft_isalpha.c \
 		ft_strlcat.c \
 		ft_atoi.c \
 		ft_calloc.c \
-		ft_substr.c
-		# ft_strjoin.c \
+		ft_substr.c \
+		ft_strjoin.c
 		# ft_strtrim.c \
 		# ft_split.c \
 		# ft_itoa.c \
@@ -56,8 +56,9 @@ fclean: clean
 
 re: fclean all
 
-test:
-	clear && echo "norminette" && norminette -R CheckForbiddenSourceHeader ft_*.c
-	clear && echo "tests" && gcc libft.h ft_*.c tests.c -lbsd && ./a.out 
+norm:
+	clear && echo "norminette" && norminette -R CheckForbiddenSourceHeader ft_*.c libft.h
+test: norm
+	clear && echo "tests" && gcc libft.h ft_*.c tests.c -lbsd && ./a.out
 
 .PHONY: all clean fclean re test

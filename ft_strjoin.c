@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/07 23:28:26 by eandre-f          #+#    #+#             */
+/*   Updated: 2022/04/07 23:38:14 by eandre-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	ls1;
+	size_t	ls2;
+	char	*s;
+	size_t	i;
+
+	ls1 = ft_strlen(s1);
+	ls2 = ft_strlen(s2);
+	s = (char *) malloc(sizeof(char) * (ls1 + ls2 + 1));
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ls1)
+	{
+		s[i] = s1[i];
+		i++;
+	}
+	i = 0;
+	while (i < ls2)
+	{
+		s[i + ls1] = s2[i];
+		i++;
+	}
+	s[i + ls1] = '\0';
+	return (s);
+}
