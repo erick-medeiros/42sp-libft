@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 20:09:12 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/05 20:50:47 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/07 05:54:22 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	sin = 1;
 	val = 0;
-	while (ft_isspace(nptr[i]) || nptr[i] == '+')
+	while (ft_isspace(nptr[i]))
 		i++;
-	if (nptr[i] == '-')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		sin = -1;
+		if (nptr[i] == '-')
+			sin = -1;
 		i++;
 	}
 	while (ft_isdigit(nptr[i]))
@@ -43,7 +44,5 @@ int	ft_atoi(const char *nptr)
 		val += nptr[i] - '0';
 		i++;
 	}
-	if (val > 0)
-		val = val * sin;
-	return (val);
+	return (val * sin);
 }
