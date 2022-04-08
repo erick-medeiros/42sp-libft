@@ -26,8 +26,8 @@ SRC = ft_isalpha.c \
 		ft_calloc.c \
 		ft_substr.c \
 		ft_strjoin.c \
-		ft_strtrim.c
-		# ft_split.c \
+		ft_strtrim.c \
+		ft_split.c
 		# ft_itoa.c \
 		# ft_strmapi.c \
 		# ft_striteri.c \
@@ -37,8 +37,6 @@ SRC = ft_isalpha.c \
 		# ft_putnbr_fd.c
 OBJ = ${SRC:.c=.o}
 BONUS =  _bonus.{c/h}
-
-${NAME}:
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
@@ -58,7 +56,7 @@ re: fclean all
 
 norm:
 	clear && echo "norminette" && norminette -R CheckForbiddenSourceHeader ft_*.c libft.h
-test: norm
-	clear && echo "tests" && gcc libft.h ft_*.c tests.c -lbsd && ./a.out
+test: 
+	clear && echo "tests" && gcc -g libft.h ft_*.c tests.c -lbsd && ./a.out
 
 .PHONY: all clean fclean re test

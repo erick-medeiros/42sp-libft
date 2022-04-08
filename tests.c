@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/07 03:59:11 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:31:58 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,6 +294,13 @@ void	test_ft_strdup(char *list)
 // 	ft_test("", list);
 // }
 
+void freeTab(char * * tab)
+{
+	for (int i = 0; tab[i] != NULL; ++i)
+		free(tab[i]);
+	free(tab);
+}
+
 int	main(void)
 {	
 	char	list[MAX_TESTS];
@@ -305,28 +312,36 @@ int	main(void)
 		list[i] = STATUS_SUCESS;
 		i++;
 	}
-	test_ft_isalpha(list);
-	test_ft_isdigit(list);
-	test_ft_isalnum(list);
-	test_ft_isascii(list);
-	test_ft_isprint(list);
-	test_ft_strlen(list);
-	test_ft_memset(list);
-	test_ft_bzero(list);
-	test_ft_memcpy(list);
-	test_ft_memmove(list);
-	test_ft_strlcpy(list);
-	test_ft_strlcat(list);
-	test_ft_toupper(list);
-	test_ft_tolower(list);
-	test_ft_strchr(list);
-	test_ft_strrchr(list);
-	test_ft_strncmp(list);
-	test_ft_memchr(list);
-	test_ft_memcmp(list);
-	test_ft_strnstr(list);
-	test_ft_atoi(list);
-	test_ft_calloc(list);
-	test_ft_strdup(list);
+	// test_ft_isalpha(list);
+	// test_ft_isdigit(list);
+	// test_ft_isalnum(list);
+	// test_ft_isascii(list);
+	// test_ft_isprint(list);
+	// test_ft_strlen(list);
+	// test_ft_memset(list);
+	// test_ft_bzero(list);
+	// test_ft_memcpy(list);
+	// test_ft_memmove(list);
+	// test_ft_strlcpy(list);
+	// test_ft_strlcat(list);
+	// test_ft_toupper(list);
+	// test_ft_tolower(list);
+	// test_ft_strchr(list);
+	// test_ft_strrchr(list);
+	// test_ft_strncmp(list);
+	// test_ft_memchr(list);
+	// test_ft_memcmp(list);
+	// test_ft_strnstr(list);
+	// test_ft_atoi(list);
+	// test_ft_calloc(list);
+	// test_ft_strdup(list);
+
+
+	// char * * tab = ft_split("  tripouille  42  ", ' ');
+	// printf("%s\n", tab[0]);
+	// freeTab(tab);
+	// tab = ft_split("tripouille", 0);
+	char **tab = ft_split("tripouille", 0);
+	freeTab(tab);
 	return (0);
 }
