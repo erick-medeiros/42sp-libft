@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/08 15:31:58 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/09 04:41:41 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void	ft_test(char *name_test, char *list_test)
 		printf("%s --------- KO\nError Test %d\n", name_test, i);
 	else
 		printf("%s OK\n", name_test);
+}
+
+void freeTab(char * * tab)
+{
+	for (int i = 0; tab[i] != NULL; ++i)
+		free(tab[i]);
+	free(tab);
 }
 
 void	test_ft_isalpha(char *list)
@@ -288,18 +295,29 @@ void	test_ft_strdup(char *list)
 	ft_test("ft_strdup", list);
 }
 
+
+void	test_ft_split(char *list)
+{
+	//list[0] = FUNC_TEST();
+
+	char **tab = ft_split("  tripouille  42  ", ' ');
+	printf("%s\n", tab[0]);
+	freeTab(tab);
+	tab = ft_split("tripouille", 0);
+	freeTab(tab);
+	char * splitme = strdup("Tripouille");
+	tab = ft_split(splitme, ' ');
+	free(splitme);
+	freeTab(tab);
+
+	ft_test("ft_split", list);
+}
+
 // void	test_(char *list)
 // {
 // 	list[0] = FUNC_TEST();
 // 	ft_test("", list);
 // }
-
-void freeTab(char * * tab)
-{
-	for (int i = 0; tab[i] != NULL; ++i)
-		free(tab[i]);
-	free(tab);
-}
 
 int	main(void)
 {	
@@ -312,36 +330,29 @@ int	main(void)
 		list[i] = STATUS_SUCESS;
 		i++;
 	}
-	// test_ft_isalpha(list);
-	// test_ft_isdigit(list);
-	// test_ft_isalnum(list);
-	// test_ft_isascii(list);
-	// test_ft_isprint(list);
-	// test_ft_strlen(list);
-	// test_ft_memset(list);
-	// test_ft_bzero(list);
-	// test_ft_memcpy(list);
-	// test_ft_memmove(list);
-	// test_ft_strlcpy(list);
-	// test_ft_strlcat(list);
-	// test_ft_toupper(list);
-	// test_ft_tolower(list);
-	// test_ft_strchr(list);
-	// test_ft_strrchr(list);
-	// test_ft_strncmp(list);
-	// test_ft_memchr(list);
-	// test_ft_memcmp(list);
-	// test_ft_strnstr(list);
-	// test_ft_atoi(list);
-	// test_ft_calloc(list);
-	// test_ft_strdup(list);
-
-
-	// char * * tab = ft_split("  tripouille  42  ", ' ');
-	// printf("%s\n", tab[0]);
-	// freeTab(tab);
-	// tab = ft_split("tripouille", 0);
-	char **tab = ft_split("tripouille", 0);
-	freeTab(tab);
+	test_ft_isalpha(list);
+	test_ft_isdigit(list);
+	test_ft_isalnum(list);
+	test_ft_isascii(list);
+	test_ft_isprint(list);
+	test_ft_strlen(list);
+	test_ft_memset(list);
+	test_ft_bzero(list);
+	test_ft_memcpy(list);
+	test_ft_memmove(list);
+	test_ft_strlcpy(list);
+	test_ft_strlcat(list);
+	test_ft_toupper(list);
+	test_ft_tolower(list);
+	test_ft_strchr(list);
+	test_ft_strrchr(list);
+	test_ft_strncmp(list);
+	test_ft_memchr(list);
+	test_ft_memcmp(list);
+	test_ft_strnstr(list);
+	test_ft_atoi(list);
+	test_ft_calloc(list);
+	test_ft_strdup(list);
+	test_ft_split(list);
 	return (0);
 }

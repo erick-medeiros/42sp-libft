@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:12:23 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 03:40:10 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/09 04:35:52 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,24 @@ static size_t	ft_split_count_words(char const *s, char c)
 	return (count_words);
 }
 
-static size_t	ft_split_count_characters(char const *s, char c, size_t i, size_t slen)
+static size_t	ft_split_next_word(char const *s, char c, size_t idword)
+{
+	size_t	i;
+	size_t	len;
+
+	len = ft_strlen(s);
+	i = idword;
+	while (ft_split_is_word(s, c, i) == 0 && i < len)
+		i++;
+	return (i);
+}
+
+static size_t	ft_split_count_characters(char const *sc, char c, size_t i)
 {
 	size_t	count_c;
 
 	count_c = 0;
-	while (s[i + count_c] != c && (i + count_c) < slen)
+	while (sc[i + count_c] != c && sc[i + count_c] != '\0')
 		count_c++;
 	return (count_c);
 }
@@ -51,28 +63,25 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	count_c;
 	size_t	count_w;
+	size_t	idword;
 	char	**splited;
 
 	count_w = ft_split_count_words(s, c);
 	splited = (char **) malloc(sizeof(char *) * (count_w + 1));
 	if (splited == NULL)
 		return (NULL);
-	count_w = 0;
 	i = 0;
-	while (s[i] != '\0' && i < ft_strlen(s))
+	idword = 0;
+	while (i < count_w)
 	{
-		if (ft_split_is_word(s, c, i) == 1)
-		{
-			count_c = ft_split_count_characters(s, c, i, ft_strlen(s));
-			splited[count_w] = (char *) malloc(sizeof(char) * (count_c + 1));
-			if (splited[count_w] == NULL)
-				return (NULL);
-			ft_strlcpy(splited[count_w], &s[i], count_c + 1);
-			count_w++;
-			i++;
-		}
-		else
-			i++;
+		idword = ft_split_next_word(s, c, idword);
+		count_c = ft_split_count_characters(s, c, idword);
+		splited[i] = (char *) malloc(sizeof(char) * (count_c + 1));
+		if (splited[i] == NULL)
+			return (NULL);
+		ft_strlcpy(splited[i], &s[idword], count_c + 1);
+		idword++;
+		i++;
 	}
 	splited[count_w] = NULL;
 	return (splited);
