@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 16:44:33 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:18:05 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 // Part 1
 // #include <ctype.h>
@@ -64,10 +70,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // Bonus
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-} t_list;
+t_list	*ft_lstnew(void *content);
 
 #endif

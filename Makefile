@@ -1,7 +1,8 @@
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
-LIB = ar rc
+LIB = ar rcs
+INC = libft.h
 SRC = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -44,7 +45,7 @@ SRC_BONUS = ft_lstnew.c
 			# ft_lstdelone.c \
 			# ft_lstclear.c \
 			# ft_lstiter.c \
-			# ft_lstmap.c \
+			# ft_lstmap.c
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 BONUS =  _bonus.{c/h}
@@ -52,8 +53,8 @@ BONUS =  _bonus.{c/h}
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}: ${OBJ}
-	${LIB} ${NAME} ${OBJ}
+${NAME}: ${OBJ} ${INC}
+	${LIB} ${NAME} ${INC} ${OBJ}
 
 all: ${NAME}
 
@@ -61,7 +62,8 @@ bonus: ${NAME} ${OBJ_BONUS}
 	${LIB} ${NAME} ${OBJ_BONUS}
 
 clean:
-	rm -fr ${OBJ} ${OBJ_BONUS}
+	rm -fr ${OBJ}
+	rm -fr ${OBJ_BONUS}
 
 fclean: clean
 	rm -f ${NAME}

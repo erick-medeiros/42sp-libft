@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 04:41:41 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:20:08 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,7 +301,6 @@ void	test_ft_split(char *list)
 	//list[0] = FUNC_TEST();
 
 	char **tab = ft_split("  tripouille  42  ", ' ');
-	printf("%s\n", tab[0]);
 	freeTab(tab);
 	tab = ft_split("tripouille", 0);
 	freeTab(tab);
