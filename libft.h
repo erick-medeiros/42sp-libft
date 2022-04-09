@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:03:47 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 19:18:05 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:25:38 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void	ft_putnbr_fd(int n, int fd);
 
 // Bonus
 t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
