@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/10 21:18:01 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/10 22:24:13 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_test(char *name_test, char *list_test)
 		i++;
 	}
 	if (status == STATUS_ERROR)
-		printf("%s --------- KO\nError Test %d\n", name_test, i);
+		printf("\t\t\t%s KO\n\t\t\tError Test %d\n", name_test, i);
 	else
 		printf("%s OK\n", name_test);
 }
@@ -235,7 +235,10 @@ void	test_ft_strncmp(char *list)
 {
 	char *s1 = "testi";
 	char *s2 = "teste";
+	char *s3 = "test\200";
+	char *s4 = "test\0";
 	list[0] = FUNC_TEST(ft_strncmp(s1, s2, 5) == strncmp(s1, s2, 5));
+	list[1] = FUNC_TEST(ft_strncmp(s3, s4, 6) == strncmp(s3, s4, 6));
 	ft_test("ft_strncmp", list);
 }
 
@@ -336,9 +339,8 @@ void	test_ft_split(char *list)
 // 	ft_test("", list);
 // }
 
-int	main(void)
-{	
-	char	list[MAX_TESTS];
+char	*clearlist(char *list)
+{
 	int		i;
 
 	i = 0;
@@ -347,29 +349,36 @@ int	main(void)
 		list[i] = STATUS_SUCESS;
 		i++;
 	}
-	test_ft_isalpha(list);
-	test_ft_isdigit(list);
-	test_ft_isalnum(list);
-	test_ft_isascii(list);
-	test_ft_isprint(list);
-	test_ft_strlen(list);
-	test_ft_memset(list);
-	test_ft_bzero(list);
-	test_ft_memcpy(list);
-	test_ft_memmove(list);
-	test_ft_strlcpy(list);
-	test_ft_strlcat(list);
-	test_ft_toupper(list);
-	test_ft_tolower(list);
-	test_ft_strchr(list);
-	test_ft_strrchr(list);
-	test_ft_strncmp(list);
-	test_ft_memchr(list);
-	test_ft_memcmp(list);
-	test_ft_strnstr(list);
-	test_ft_atoi(list);
-	test_ft_calloc(list);
-	test_ft_strdup(list);
-	test_ft_split(list);
+	return (list);
+}
+
+int	main(void)
+{	
+	char	list[MAX_TESTS];
+
+	test_ft_isalpha(clearlist(list));
+	test_ft_isdigit(clearlist(list));
+	test_ft_isalnum(clearlist(list));
+	test_ft_isascii(clearlist(list));
+	test_ft_isprint(clearlist(list));
+	test_ft_strlen(clearlist(list));
+	test_ft_memset(clearlist(list));
+	test_ft_bzero(clearlist(list));
+	test_ft_memcpy(clearlist(list));
+	test_ft_memmove(clearlist(list));
+	test_ft_strlcpy(clearlist(list));
+	test_ft_strlcat(clearlist(list));
+	test_ft_toupper(clearlist(list));
+	test_ft_tolower(clearlist(list));
+	test_ft_strchr(clearlist(list));
+	test_ft_strrchr(clearlist(list));
+	test_ft_strncmp(clearlist(list));
+	test_ft_memchr(clearlist(list));
+	test_ft_memcmp(clearlist(list));
+	test_ft_strnstr(clearlist(list));
+	test_ft_atoi(clearlist(list));
+	test_ft_calloc(clearlist(list));
+	test_ft_strdup(clearlist(list));
+	test_ft_split(clearlist(list));
 	return (0);
 }
