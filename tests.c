@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 19:20:08 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/10 21:18:01 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,24 @@ void	test_ft_memmove(char *list)
 	ft_memmove(memmove_s1, "1234567890", 5);
 	memmove(memmove_s2, "1234567890", 5);
 	list[0] = FUNC_TEST(strncmp(memmove_s1, memmove_s2, 5)  == 0);
+
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest;
+	dest = src + 1;
+	memmove(dest, "consectetur", 5);
+	memmove(dest, "con\0sec\0\0te\0tur", 10);
+	memmove(dest, src, 8);
+	memmove(src, dest, 8);
+	memmove(src, dest, 0);
+	char	src2[] = "lorem ipsum dolor sit amet";
+	char	*dest2;
+	dest2 = src2 + 1;
+	ft_memmove(dest2, "consectetur", 5);
+	ft_memmove(dest2, "con\0sec\0\0te\0tur", 10);
+	ft_memmove(dest2, src2, 8);
+	ft_memmove(src2, dest2, 8);
+	ft_memmove(src2, dest2, 0);
+	list[1] = FUNC_TEST(strncmp(src, src2, strlen(src))  == 0);
 	ft_test("ft_memmove", list);
 }
 
