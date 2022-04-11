@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/10 22:24:13 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/11 05:46:32 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void	test_ft_memcpy(char *list)
 	ft_memcpy(memcpy_s1, "1234567890", 5);
 	memcpy(memcpy_s2, "1234567890", 5);
 	list[0] = FUNC_TEST(strncmp(memcpy_s1, memcpy_s2, 5)  == 0);
+	list[1] = FUNC_TEST(ft_memcpy(((void*)0), ((void*)0), 3) == NULL);
 	ft_test("ft_memcpy", list);
 }
 
