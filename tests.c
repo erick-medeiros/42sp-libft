@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/11 05:46:32 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/11 16:25:51 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,18 @@ void	test_ft_memmove(char *list)
 	ft_memmove(src2, dest2, 8);
 	ft_memmove(src2, dest2, 0);
 	list[1] = FUNC_TEST(strncmp(src, src2, strlen(src))  == 0);
+
+	int size_test2 = 128 * 1024 * 100;// * 1024;
+	char *dst_test2 = (char *)malloc(sizeof(char) * size_test2);
+	char *data_test2 = (char *)malloc(sizeof(char) * size_test2);
+	memset(data_test2, 'A', size_test2);
+	ft_memmove(dst_test2, data_test2, size_test2);
+	//memmove(dst_test2, data_test2, size_test2);
+
+	list[2] = FUNC_TEST(strncmp(dst_test2, data_test2, size_test2)  == 0);
+
+	char *test3 = ft_memmove(((void*)0), ((void*)0), 5);
+	list[2] = FUNC_TEST(test3 == NULL);
 	ft_test("ft_memmove", list);
 }
 
