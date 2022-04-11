@@ -6,50 +6,28 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 23:44:03 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/08 00:08:19 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/11 02:32:44 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strtrim_len(char const *s1, char const *set)
-{
-	size_t	len;
-	size_t	i;
-
-	len = 0;
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		if (ft_strchr(set, s1[i]) == NULL)
-			len++;
-		i++;
-	}
-	return (len);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len;
 	size_t	i;
-	char	*s;
+	size_t	n;
+	size_t	len;
 
-	len = ft_strtrim_len(s1, set);
-	i = 0;
-	s = (char *) malloc(sizeof(char) * (len + 1));
-	if (s == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	i = 0;
-	len = 0;
-	while (s1[i] != '\0')
-	{
-		if (ft_strchr(set, s1[i]) == NULL)
-		{
-			s[len] = s1[i];
-			len++;
-		}
+	while (ft_strchr(set, s1[i]) != NULL && s1[i] != '\0')
 		i++;
-	}
-	s[len] = '\0';
-	return (s);
+	n = ft_strlen(s1);
+	while (ft_strchr(set, s1[n]) != NULL && n != 0)
+		n--;
+	len = n - i + 1;
+	if (len <= 0)
+		return (ft_strdup(""));
+	return (ft_substr(s1, i, len));
 }
