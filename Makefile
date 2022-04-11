@@ -46,27 +46,27 @@ SRC_BONUS = ft_lstnew.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c
-OBJ = ${SRC:.c=.o}
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
-BONUS =  _bonus.{c/h}
+OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+BONUS =  _bonus.(c/h)
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-${NAME}: ${OBJ} ${INC}
-	${LIB} ${NAME} ${INC} ${OBJ}
+$(NAME): $(OBJ) $(INC)
+	$(LIB) $(NAME) $(INC) $(OBJ)
 
-all: ${NAME}
+all: $(NAME)
 
-bonus: ${NAME} ${OBJ_BONUS}
-	${LIB} ${NAME} ${OBJ_BONUS}
+bonus: $(NAME) $(OBJ_BONUS)
+	$(LIB) $(NAME) $(OBJ_BONUS)
 
 clean:
-	rm -fr ${OBJ}
-	rm -fr ${OBJ_BONUS}
+	rm -fr $(OBJ)
+	rm -fr $(OBJ_BONUS)
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean all
 
