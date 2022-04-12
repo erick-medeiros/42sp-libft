@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 20:09:12 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/12 03:47:20 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 15:21:36 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,20 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
+static int	ft_atoi_error(int sin)
+{
+	if (sin == 1)
+		return (-1);
+	else
+		return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sin;
-	int	val;
+	size_t	i;
+	int		sin;
+	long	val;
+	long	pre;
 
 	i = 0;
 	sin = 1;
@@ -40,8 +49,10 @@ int	ft_atoi(const char *nptr)
 	}
 	while (ft_isdigit(nptr[i]))
 	{
-		val = val * 10;
-		val += nptr[i] - '0';
+		pre = val;
+		val = (val * 10) + (nptr[i] - '0');
+		if (val < pre)
+			return (ft_atoi_error(sin));
 		i++;
 	}
 	return (val * sin);
