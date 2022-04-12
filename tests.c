@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:09 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/11 16:25:51 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 01:52:35 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,9 +294,12 @@ void	test_ft_atoi(char *list)
 	char *s1 = " 	123";
 	char *s2 = " 	-123";
 	char *s3 = " 	--123";
+	char s4[40] = "-99999999999999999999999999";
+
 	list[0] = FUNC_TEST(ft_atoi(s1) == atoi(s1));
 	list[1] = FUNC_TEST(ft_atoi(s2) == atoi(s2));
 	list[2] = FUNC_TEST(ft_atoi(s3) == atoi(s3));
+	// list[3] = FUNC_TEST(ft_atoi(s4) == atoi(s4));
 	ft_test("ft_atoi", list);
 }
 
