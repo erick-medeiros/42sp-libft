@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:12:23 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/12 02:24:32 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:40:27 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ char	**ft_split(char const *s, char c)
 	splited = (char **) malloc(sizeof(char *) * (count_w + 1));
 	if (splited == NULL)
 		return (NULL);
-	i = 0;
-	idword = 0;
-	while (i < count_w)
+	idword = -1;
+	i = -1;
+	while (++i < count_w)
 	{
-		idword = ft_split_next_word(s, c, idword);
+		idword = ft_split_next_word(s, c, ++idword);
 		count_c = ft_split_count_characters(s, c, idword);
 		splited[i] = (char *) malloc(sizeof(char) * (count_c + 1));
 		if (splited[i] == NULL)
 			return (NULL);
 		ft_strlcpy(splited[i], &s[idword], count_c + 1);
-		idword++;
-		i++;
 	}
 	splited[count_w] = NULL;
 	return (splited);
