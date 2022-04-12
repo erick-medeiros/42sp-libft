@@ -6,12 +6,11 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 19:16:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/06 02:17:41 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 03:55:26 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
