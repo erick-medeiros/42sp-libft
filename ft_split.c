@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:12:23 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 04:35:52 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:24:32 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	**ft_split(char const *s, char c)
 	size_t	idword;
 	char	**splited;
 
+	if (s == NULL)
+		return (NULL);
 	count_w = ft_split_count_words(s, c);
 	splited = (char **) malloc(sizeof(char *) * (count_w + 1));
 	if (splited == NULL)

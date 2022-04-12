@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 23:28:26 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/07 23:38:14 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:25:28 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*s;
 	size_t	i;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	ls1 = ft_strlen(s1);
 	ls2 = ft_strlen(s2);
 	s = (char *) malloc(sizeof(char) * (ls1 + ls2 + 1));

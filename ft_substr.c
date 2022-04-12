@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 22:00:24 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/07 23:24:04 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:26:31 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub;
 	size_t	slen;
 
+	if (s == NULL)
+		return (NULL);
 	slen = ft_strlen(s);
 	if (start > slen)
 		return (ft_strdup(""));
