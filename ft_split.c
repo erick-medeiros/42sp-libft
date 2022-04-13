@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:12:23 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/12 02:40:27 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:03:53 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ static size_t	ft_split_count_words(char const *s, char c)
 static size_t	ft_split_next_word(char const *s, char c, size_t idword)
 {
 	size_t	i;
-	size_t	len;
 
-	len = ft_strlen(s);
 	i = idword;
-	while (ft_split_is_word(s, c, i) == 0 && i < len)
+	while (ft_split_is_word(s, c, i) == 0 && s[i] != '\0')
 		i++;
 	return (i);
 }
