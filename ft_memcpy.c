@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 20:10:24 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/11 05:52:50 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 05:45:31 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*dest_uc;
+	unsigned char	*src_uc;
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
+	dest_uc = (unsigned char *)dest;
+	src_uc = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
-		((char *)dest)[i] = ((char *)src)[i];
+		dest_uc[i] = src_uc[i];
 		i++;
 	}
 	return (dest);
