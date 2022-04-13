@@ -6,41 +6,37 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 04:46:35 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/09 06:08:12 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 06:55:37 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_itoa_topositive(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
-
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		cpn;
+	size_t	i;
+	int		nsave;
 	char	s[12];
-	char	*r;
 
-	cpn = n;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	nsave = n;
+	if (n < 0)
+		n = n * -1;
 	s[11] = '\0';
-	i = 10;
-	while ((i != 0 && n != 0) || (i == 10 && n == 0))
+	i = 11;
+	while (n != 0)
 	{
-		s[i] = ft_itoa_topositive(n % 10) + '0';
-		n = n / 10;
 		i--;
+		s[i] = (n % 10) + '0';
+		n = n / 10;
 	}
-	if (cpn < 0)
+	if (nsave < 0)
+	{
+		i--;
 		s[i] = '-';
-	else
-		i++;
-	r = ft_strdup(&s[i]);
-	if (r == NULL)
-		return (NULL);
-	return (r);
+	}
+	return (ft_strdup(&s[i]));
 }
