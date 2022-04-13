@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 07:01:44 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/11 04:37:50 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 06:29:07 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	s[10];
+	char	s[11];
 	int		i;
 
+	if (n == -2147483648)
+		return (ft_putstr_fd("-2147483648", fd));
 	if (n == 0)
 		return (ft_putchar_fd('0', fd));
 	if (n < 0)
+	{
 		ft_putchar_fd('-', fd);
-	s[9] = '\0';
-	i = 8;
+		n = n * -1;
+	}
+	s[10] = '\0';
+	i = 10;
 	while (n != 0)
 	{
-		s[i] = n % 10;
-		if (s[i] < 0)
-			s[i] = s[i] * -1;
-		s[i] = s[i] + '0';
-		n = n / 10;
 		i--;
+		s[i] = (n % 10) + '0';
+		n = n / 10;
 	}
-	i++;
 	ft_putstr_fd(&s[i], fd);
 }
