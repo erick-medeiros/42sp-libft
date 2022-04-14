@@ -43,6 +43,7 @@ Functions that are either not in the libc, or that are part of it but in a diffe
 - `ft_striteri` apply a function to each string character
 - `ft_putchar_fd` outputs the character
 - `ft_putstr_fd` outputs the string
+- `ft_putendl_fd` outputs the string followed by a newline
 - `ft_putnbr_fd` outputs the integer
 
 ## Bonus
