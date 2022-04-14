@@ -58,3 +58,10 @@ Functions that manipulating lists
 - `ft_lstclear` frees list memory
 - `ft_lstiter` applies the function on content of each node
 - `ft_lstmap` creates a new list resulting of applying of the function
+
+## Usage
+
+Run tests
+```
+gcc -g libft.h ft_*.c tests.c -lbsd -o tests.out && ./tests.out
+```
