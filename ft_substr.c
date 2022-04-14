@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 22:00:24 by eandre-f          #+#    #+#             */
-/*   Updated: 2022/04/12 02:26:31 by eandre-f         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:51:34 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	slen;
+	size_t	size;
 
 	if (s == NULL)
 		return (NULL);
@@ -23,11 +24,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > slen)
 		return (ft_strdup(""));
 	if (slen - start > len)
-		sub = (char *) malloc(sizeof(char) * (len + 1));
+		size = len + 1;
 	else
-		sub = (char *) malloc(sizeof(char) * (slen - start + 1));
+		size = slen - start + 1;
+	sub = (char *) malloc(sizeof(char) * size);
 	if (sub == NULL)
 		return (NULL);
-	ft_strlcpy(sub, (s + start), (len + 1));
+	ft_strlcpy(sub, (s + start), size);
 	return (sub);
 }
